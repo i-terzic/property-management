@@ -2,29 +2,51 @@
 
 ## Entities (master data)
 
-- [X] Tenant
-- [X] Owner
-- [X] Property Manager
-- [X] Contractor
+- [x] Tenant
+- [x] Owner
+- [x] Property Manager
+- [x] Contractor
 
-- [X] Address
-- [X] Property
-- [X] Flat
+- [x] Address
+- [x] Property
+- [x] Flat
 
 - [?] BankAccount
 
 ## Transactional entities
 
-- [X] Payment
-- [X] Bill
-- [X] Contract
-- [X] Transaction
+- [x] Payment
+- [x] Bill
+- [x] Contract
+- [x] Transaction
 
 ### User Views
 
-- [ ] reports
-  - [ ] service charge settlement
-  - [ ] open positions
+- [ ] Property Manager
+  - [ ] create/modify new properties
+  - [ ] create/modify new user
+  - [ ] view data of properties/user
+  - [ ] create reports
+  - [ ] view data for managed properties/user
+  - [ ] view invoice data for managed properties
+  - [ ] view service charge settlements for managed properties
+  - [ ] view open/closed positions/invoice for managed properties
+  - [ ] view open/payed rents for properties/flats/houses etc.
+- [ ] Owner
+  - [ ] view data of own properties
+  - [ ] create reports
+  - [ ] view invoice data for own properties
+  - [ ] view service charge settlements for own properties
+  - [ ] view open/closed positions/invoice for own properties
+  - [ ] view open/payed rents for properties/flats/houses etc.
+- [ ] Tenant
+  - [ ] view open/closed service charge settlements for rent property/flat/house etc.
+  - [ ] view invoice for rent property/flat/house etc.
+
+### Reports
+
+- [ ] service charge settlement
+- [ ] open positions
 
 ## General flow
 
