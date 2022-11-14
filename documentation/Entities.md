@@ -43,6 +43,31 @@
   - [ ] view open/closed service charge settlements for rent property/flat/house etc.
   - [ ] view invoice for rent property/flat/house etc.
 
+### Relevant entities & relationships per user view
+
+- [ ] Property Manager
+  - [ ] properties
+    - [ ] property address
+    - [ ] related flats
+    - [ ] related property owners
+    - [ ] related tennants
+    - [ ] related invoice
+- [ ] owner
+  - [ ] own properties
+    - [ ] property address
+    - [ ] related flats
+    - [ ] related tennants
+    - [ ] related invoice
+    - [ ] related property manager
+    - [ ] own contracts
+      - [ ] related service charge settlements
+- [ ] tenant
+  - [ ] own contract
+  - [ ] own service charge settlement
+    - [ ] own SCSPositions
+  - [ ] all relevant positions incl. allocation type
+  - [ ] related invoice per flat/property
+
 ### Reports
 
 - [ ] service charge settlement
