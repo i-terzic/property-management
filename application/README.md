@@ -19,6 +19,7 @@ Any side-effects with no VPN connection are not handled and may cause the applic
 Requirements:
 
 - [x] [yarn](https://yarnpkg.com/)
+- [x] [node.js](https://nodejs.org/en/)
 
 In order to install all dependencies for the frontend,
 you have to `cd` into `/frontend` and run
@@ -38,6 +39,7 @@ yarn run dev
 Requirements:
 
 - [x] [yarn](https://yarnpkg.com/)
+- [x] [node.js](https://nodejs.org/en/)
 
 In order to install all dependencies for the frontend,
 you have to `cd` into `/api` and run
