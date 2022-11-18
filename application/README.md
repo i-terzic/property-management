@@ -53,3 +53,7 @@ after that you can run the frontend with:
 ```shell
 yarn run start
 ```
+
+In order for the backend to run properly you have to add a `dbConfig.json` file to `/api/config`.
+
+All required fields are shown in the `sampleDbConfig.json` file in `/api/config`
