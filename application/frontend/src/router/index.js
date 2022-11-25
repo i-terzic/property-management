@@ -16,6 +16,7 @@ const routes = [
     component: () => import("../views/TenantView.vue"),
     meta: {
       keepAlive: false,
+      backgroundColor: "#d2d2d2",
     },
   },
   {
@@ -24,6 +25,7 @@ const routes = [
     component: () => import("../views/ManagerView.vue"),
     meta: {
       keepAlive: false,
+      backgroundColor: "white",
     },
   },
   {
@@ -32,6 +34,7 @@ const routes = [
     component: () => import("../views/OwnerView.vue"),
     meta: {
       keepAlive: false,
+      backgroundColor: "white",
     },
   },
 ];
