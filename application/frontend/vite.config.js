@@ -1,5 +1,6 @@
 // Plugins
 import vue from "@vitejs/plugin-vue";
+import eslintPlugin from "vite-plugin-eslint";
 import vuetify from "vite-plugin-vuetify";
 
 // Utilities
@@ -14,6 +15,7 @@ export default defineConfig({
     vuetify({
       autoImport: true,
     }),
+    eslintPlugin(),
   ],
   define: { "process.env": {} },
   resolve: {

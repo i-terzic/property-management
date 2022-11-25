@@ -1,3 +1,3 @@
 <template>
-  <h1>Home View</h1>
+  <v-container fluid />
 </template>
