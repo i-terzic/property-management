@@ -1,5 +1,5 @@
 <template>
-  <v-container style="max-width: 1200px">
+  <v-container>
     <div class="d-flex justify-center">
       <h1>Hello, what do you want to do today?</h1>
     </div>

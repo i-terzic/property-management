@@ -1,38 +1,26 @@
 <template>
   <v-app>
-    <v-navigation-drawer rail expand-on-hover color="#27292F" theme="dark">
-      <!-- TODO: add navigation items here -->
-      <v-list nav>
-        <v-list-item
-          prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg"
-          title="Master User"
-          subtitle="Master.User@gmail.com"
-        />
-      </v-list>
-
-      <v-divider />
-
-      <v-list density="compact" nav>
-        <v-list-item :to="{ name: 'home' }" prepend-icon="mdi-home">
-          Home
-        </v-list-item>
-        <v-list-item :to="{ name: 'tenant' }" prepend-icon="mdi-currency-usd">
-          Tenant
-        </v-list-item>
-        <v-list-item :to="{ name: 'owner' }" prepend-icon="mdi-home">
-          Owner
-        </v-list-item>
-        <v-list-item :to="{ name: 'manager' }" prepend-icon="mdi-account-edit">
-          Manager
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
-    <v-app-bar color="grey-lighten-2" elevation="1">
-      <v-toolbar-title>
-        <!-- TODO: Application Name -->
-        Property Management
-      </v-toolbar-title>
+    <v-app-bar flat color="grey-darken-2" density="compact">
+      <v-container style="max-width: 1200px" class="d-flex align-center">
+        <v-toolbar-title>
+          <!-- TODO: Application Name -->
+          Property Management
+        </v-toolbar-title>
+        <v-toolbar-items variant="plain">
+          <v-list-item :to="{ name: 'home' }" :active="false">
+            Home
+          </v-list-item>
+          <v-list-item :to="{ name: 'tenant' }" :active="false">
+            Tenant
+          </v-list-item>
+          <v-list-item :to="{ name: 'owner' }" :active="false">
+            Owner
+          </v-list-item>
+          <v-list-item :to="{ name: 'manager' }" :active="false">
+            Manager
+          </v-list-item>
+        </v-toolbar-items>
+      </v-container>
     </v-app-bar>
 
     <v-main>
@@ -40,7 +28,7 @@
         :color="currentRoute.meta.backgroundColor"
         style="height: calc(100vh - 64px)"
       >
-        <v-container>
+        <v-container style="max-width: 1200px">
           <!-- TODO: Add router-views -->
           <router-view />
         </v-container>
