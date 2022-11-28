@@ -37,6 +37,15 @@ const routes = [
       backgroundColor: "white",
     },
   },
+  {
+    path: "/data-import",
+    name: "dataImport",
+    component: () => import("../views/DataImport.vue"),
+    meta: {
+      keepAlive: false,
+      backgroundColor: "white",
+    },
+  },
 ];
 
 const router = createRouter({ history: createWebHashHistory(), routes });

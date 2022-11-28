@@ -3,12 +3,12 @@
     <div class="d-flex justify-center">
       <h1>Hello, what do you want to do today?</h1>
     </div>
-    <div class="d-flex justify-space-around pt-5">
+    <div class="d-flex justify-space-between pt-5">
       <!-- Tenant card -->
       <v-card width="350px" color="primary" outlined>
         <v-card-title> Tenant </v-card-title>
         <v-card-text>
-          In this view you can see al relevant information regarding the tenant
+          In this view you can see all relevant information regarding the tenant
           view
         </v-card-text>
         <v-divider></v-divider>
@@ -28,7 +28,7 @@
       <v-card width="350px" color="secondary">
         <v-card-title> Owner </v-card-title>
         <v-card-text>
-          In this view you can see al relevant information regarding the Owner
+          In this view you can see all relevant information regarding the Owner
           view
         </v-card-text>
         <v-divider></v-divider>
@@ -48,8 +48,8 @@
       <v-card width="350px" color="ternary">
         <v-card-title> Manager </v-card-title>
         <v-card-text>
-          In this view you can see al relevant information regarding the Manager
-          view
+          In this view you can see all relevant information regarding the
+          Manager view
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions style="background-color: white">
@@ -61,6 +61,28 @@
             @click="navigateToView('manager')"
             >Navigate</v-btn
           >
+        </v-card-actions>
+      </v-card>
+    </div>
+    <div class="d-flex justify-space-between pt-5">
+      <v-card width="350px" color="primary">
+        <v-card-title>Import CSV Data </v-card-title>
+        <v-card-text>
+          In this view you can import transactional data in form of a CSV file,
+          which will be parsed on the DB and the values will be stored in the
+          corresponding tables
+        </v-card-text>
+        <v-divider></v-divider>
+        <v-card-actions style="background-color: white">
+          <v-spacer></v-spacer>
+          <v-btn
+            variant="outlined"
+            color="ternary"
+            flat
+            @click="navigateToView('dataImport')"
+          >
+            Navigate
+          </v-btn>
         </v-card-actions>
       </v-card>
     </div>
