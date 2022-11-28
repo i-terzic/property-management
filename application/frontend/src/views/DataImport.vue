@@ -24,10 +24,12 @@
     <v-row cols="2" class="pt-10">
       <v-col cols="3">
         <v-file-input
+          v-model="file"
           accept="text/csv, text/plain"
           variant="outlined"
           label="CSV File Input"
           :disabled="csvPlainText.length !== 0"
+          @update:model-value="parseCSVFile"
         >
         </v-file-input>
       </v-col>
@@ -54,10 +56,21 @@ export default {
     const showOverlay = ref(false);
     const csvPlainText = ref("");
 
-    const file = ref(null);
+    const file = ref([]);
 
     const importCSVData = () => {
       alert(csvPlainText.value);
+    };
+
+    const parseCSVFile = (fileInput) => {
+      if (fileInput.length === 0) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        file.value = [];
+        csvPlainText.value = reader.result;
+      };
+
+      reader.readAsText(fileInput[0]);
     };
 
     return {
@@ -65,6 +78,7 @@ export default {
       csvPlainText,
       file,
       importCSVData,
+      parseCSVFile,
     };
   },
 };
