@@ -77,7 +77,7 @@
           <v-spacer></v-spacer>
           <v-btn
             variant="outlined"
-            color="ternary"
+            color="primary"
             flat
             @click="navigateToView('dataImport')"
           >
