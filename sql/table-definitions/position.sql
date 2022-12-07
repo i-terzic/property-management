@@ -7,8 +7,8 @@ EXEC ('CREATE SCHEMA [group7]');
 GO
 
 -- ************************************** [Position]
-IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Position')
-CREATE TABLE [Position]
+IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Property' AND t.schema_id IN ( SELECT schema_id  FROM sys.schemas s WHERE s.name='group7') )
+CREATE TABLE [group7].[Position]
 (
  [positionID]       int NOT NULL ,
  [positionName]     varchar(255) NOT NULL ,

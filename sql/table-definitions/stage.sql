@@ -7,8 +7,8 @@ EXEC ('CREATE SCHEMA [group7]');
 GO
 
 -- ************************************** [Stage]
-IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Stage')
-CREATE TABLE [Stage]
+IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Property' AND t.schema_id IN ( SELECT schema_id  FROM sys.schemas s WHERE s.name='group7') )
+CREATE TABLE [group7].[Stage]
 (
  [stageId]   int NOT NULL ,
  [line]       NOT NULL ,
