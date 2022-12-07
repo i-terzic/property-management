@@ -10,14 +10,13 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Payment' AND t.schema_id IN ( SELECT schema_id  FROM sys.schemas s WHERE s.name='group7'))
 CREATE TABLE [group7].[Payment]
 (
- [paymentID] int NOT NULL ,
+ [paymentID] int IDENTITY(1,1) PRIMARY KEY ,
  [tenantID]  int NOT NULL ,
  [amount]    int NOT NULL ,
  [unitID]    int NOT NULL ,
  [date]      datetime NOT NULL ,
 
 
- CONSTRAINT [PK_7] PRIMARY KEY CLUSTERED ([paymentID] ASC),
  CONSTRAINT [FK_13] FOREIGN KEY ([unitID])  REFERENCES [group7].[Unit]([unitID]),
  CONSTRAINT [FK_14] FOREIGN KEY ([tenantID])  REFERENCES [group7].[Tenant]([tenantID])
 );
