@@ -18,15 +18,7 @@ CREATE TABLE [group7].[Invoice]
  [comment]     varchar(255) NOT NULL ,
 
 
- CONSTRAINT [PK_1] PRIMARY KEY CLUSTERED ([invoiceID] ASC),
- CONSTRAINT [FK_4] FOREIGN KEY ([propertyID])  REFERENCES [Property]([propertyID])
+ CONSTRAINT [PK_4] PRIMARY KEY CLUSTERED ([invoiceID] ASC),
+ CONSTRAINT [FK_4] FOREIGN KEY ([propertyID])  REFERENCES [group7].[Property]([propertyID])
 );
-GO
-
-
-CREATE NONCLUSTERED INDEX [FK_2] ON [Invoice] 
- (
-  [propertyID] ASC
- )
-
 GO

@@ -15,15 +15,7 @@ CREATE TABLE [group7].[Position]
  [allocationTypeID] int NOT NULL ,
 
 
- CONSTRAINT [PK_1] PRIMARY KEY CLUSTERED ([positionID] ASC),
- CONSTRAINT [FK_12] FOREIGN KEY ([allocationTypeID])  REFERENCES [allocationType]([allocationTypeID])
+ CONSTRAINT [PK_8] PRIMARY KEY CLUSTERED ([positionID] ASC),
+ CONSTRAINT [FK_12] FOREIGN KEY ([allocationTypeID])  REFERENCES [group7].[allocationType]([allocationTypeID])
 );
-GO
-
-
-CREATE NONCLUSTERED INDEX [FK_2] ON [Position] 
- (
-  [allocationTypeID] ASC
- )
-
 GO

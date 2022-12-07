@@ -15,6 +15,6 @@ CREATE TABLE [group7].[Manager]
  [lastName]  varchar(64) NOT NULL ,
 
 
- CONSTRAINT [PK_1] PRIMARY KEY CLUSTERED ([managerID] ASC)
+ CONSTRAINT [PK_5] PRIMARY KEY CLUSTERED ([managerID] ASC)
 );
 GO

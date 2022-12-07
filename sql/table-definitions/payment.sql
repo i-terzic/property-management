@@ -17,23 +17,8 @@ CREATE TABLE [group7].[Payment]
  [date]      datetime NOT NULL ,
 
 
- CONSTRAINT [PK_1] PRIMARY KEY CLUSTERED ([paymentID] ASC),
- CONSTRAINT [FK_13] FOREIGN KEY ([unitID])  REFERENCES [Unit]([unitID]),
- CONSTRAINT [FK_14] FOREIGN KEY ([tenantID])  REFERENCES [Tenant]([tenantID])
+ CONSTRAINT [PK_7] PRIMARY KEY CLUSTERED ([paymentID] ASC),
+ CONSTRAINT [FK_13] FOREIGN KEY ([unitID])  REFERENCES [group7].[Unit]([unitID]),
+ CONSTRAINT [FK_14] FOREIGN KEY ([tenantID])  REFERENCES [group7].[Tenant]([tenantID])
 );
-GO
-
-
-CREATE NONCLUSTERED INDEX [FK_2] ON [Payment] 
- (
-  [unitID] ASC
- )
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_3] ON [Payment] 
- (
-  [tenantID] ASC
- )
-
 GO

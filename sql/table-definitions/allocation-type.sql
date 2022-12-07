@@ -14,6 +14,6 @@ CREATE TABLE [group7].[allocationType]
  [allocationTypeName] varchar(64) NOT NULL ,
 
 
- CONSTRAINT [PK_1] PRIMARY KEY CLUSTERED ([allocationTypeID] ASC)
+ CONSTRAINT [PK_2] PRIMARY KEY CLUSTERED ([allocationTypeID] ASC)
 );
 GO

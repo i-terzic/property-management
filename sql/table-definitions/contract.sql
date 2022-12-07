@@ -20,31 +20,9 @@ CREATE TABLE [group7].[Contract]
  [endDate]     datetime NOT NULL ,
 
 
- CONSTRAINT [PK_1] PRIMARY KEY CLUSTERED ([contractID] ASC),
- CONSTRAINT [FK_5] FOREIGN KEY ([ownerID])  REFERENCES [Owner]([ownerID]),
- CONSTRAINT [FK_6] FOREIGN KEY ([unitID])  REFERENCES [Unit]([unitID]),
- CONSTRAINT [FK_7] FOREIGN KEY ([tenantID])  REFERENCES [Tenant]([tenantID])
+ CONSTRAINT [PK_3] PRIMARY KEY CLUSTERED ([contractID] ASC),
+ CONSTRAINT [FK_5] FOREIGN KEY ([ownerID])  REFERENCES [group7].[Owner]([ownerID]),
+ CONSTRAINT [FK_6] FOREIGN KEY ([unitID])  REFERENCES [group7].[Unit]([unitID]),
+ CONSTRAINT [FK_7] FOREIGN KEY ([tenantID])  REFERENCES [group7].[Tenant]([tenantID])
 );
-GO
-
-
-CREATE NONCLUSTERED INDEX [FK_2] ON [Contract] 
- (
-  [ownerID] ASC
- )
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_3] ON [Contract] 
- (
-  [unitID] ASC
- )
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_4] ON [Contract] 
- (
-  [tenantID] ASC
- )
-
 GO

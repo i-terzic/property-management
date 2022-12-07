@@ -16,23 +16,8 @@ CREATE TABLE [group7].[scsPosition]
  [positionID]    int NOT NULL ,
 
 
- CONSTRAINT [PK_1] PRIMARY KEY CLUSTERED ([scsPositionID] ASC),
- CONSTRAINT [FK_11] FOREIGN KEY ([positionID])  REFERENCES [Position]([positionID]),
- CONSTRAINT [FK_14_1] FOREIGN KEY ([scsID])  REFERENCES [SCS]([scsID])
+ CONSTRAINT [PK_10] PRIMARY KEY CLUSTERED ([scsPositionID] ASC),
+ CONSTRAINT [FK_11] FOREIGN KEY ([positionID])  REFERENCES [group7].[Position]([positionID]),
+ CONSTRAINT [FK_14_1] FOREIGN KEY ([scsID])  REFERENCES [group7].[SCS]([scsID])
 );
-GO
-
-
-CREATE NONCLUSTERED INDEX [FK_2] ON [scsPosition] 
- (
-  [positionID] ASC
- )
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_3] ON [scsPosition] 
- (
-  [scsID] ASC
- )
-
 GO

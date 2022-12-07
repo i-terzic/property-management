@@ -16,6 +16,6 @@ CREATE TABLE [group7].[Owner]
  [bankAccount] varchar(255) NOT NULL ,
 
 
- CONSTRAINT [PK_1] PRIMARY KEY CLUSTERED ([ownerID] ASC)
+ CONSTRAINT [PK_6] PRIMARY KEY CLUSTERED ([ownerID] ASC)
 );
 GO

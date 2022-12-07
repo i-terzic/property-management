@@ -16,15 +16,7 @@ CREATE TABLE [group7].[SCS]
  [endInterval]   datetime NOT NULL ,
 
 
- CONSTRAINT [PK_1] PRIMARY KEY CLUSTERED ([scsID] ASC),
- CONSTRAINT [FK_9] FOREIGN KEY ([tenantID])  REFERENCES [Tenant]([tenantID])
+ CONSTRAINT [PK_11] PRIMARY KEY CLUSTERED ([scsID] ASC),
+ CONSTRAINT [FK_9] FOREIGN KEY ([tenantID])  REFERENCES [group7].[Tenant]([tenantID])
 );
-GO
-
-
-CREATE NONCLUSTERED INDEX [FK_2] ON [SCS] 
- (
-  [tenantID] ASC
- )
-
 GO

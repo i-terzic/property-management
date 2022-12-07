@@ -11,10 +11,10 @@ IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Stage' AND t.schema_id I
 CREATE TABLE [group7].[Stage]
 (
  [stageId]   int NOT NULL ,
- [line]       NOT NULL ,
+ [line]      text NOT NULL ,
  [timestamp] datetime NOT NULL ,
 
 
- CONSTRAINT [PK_1] PRIMARY KEY CLUSTERED ([stageId] ASC)
+ CONSTRAINT [PK_12] PRIMARY KEY CLUSTERED ([stageId] ASC)
 );
 GO

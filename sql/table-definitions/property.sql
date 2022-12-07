@@ -17,31 +17,9 @@ CREATE TABLE [group7].[Property]
  [managerID]  int NOT NULL ,
 
 
- CONSTRAINT [PK_1] PRIMARY KEY CLUSTERED ([propertyID] ASC),
- CONSTRAINT [FK_1] FOREIGN KEY ([managerID])  REFERENCES [Manager]([managerID]),
- CONSTRAINT [FK_2] FOREIGN KEY ([ownerID])  REFERENCES [Owner]([ownerID]),
- CONSTRAINT [FK_3] FOREIGN KEY ([adressID])  REFERENCES [Adress]([adressID])
+ CONSTRAINT [PK_9] PRIMARY KEY CLUSTERED ([propertyID] ASC),
+ CONSTRAINT [FK_1] FOREIGN KEY ([managerID])  REFERENCES [group7].[Manager]([managerID]),
+ CONSTRAINT [FK_2] FOREIGN KEY ([ownerID])  REFERENCES [group7].[Owner]([ownerID]),
+ CONSTRAINT [FK_3] FOREIGN KEY ([adressID])  REFERENCES [group7].[Adress]([adressID])
 );
-GO
-
-
-CREATE NONCLUSTERED INDEX [FK_2] ON [Property] 
- (
-  [managerID] ASC
- )
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_3] ON [Property] 
- (
-  [ownerID] ASC
- )
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_4] ON [Property] 
- (
-  [adressID] ASC
- )
-
 GO

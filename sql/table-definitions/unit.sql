@@ -16,15 +16,7 @@ CREATE TABLE [group7].[Unit]
  [nrRooms]      int NOT NULL ,
 
 
- CONSTRAINT [PK_1] PRIMARY KEY CLUSTERED ([unitID] ASC),
- CONSTRAINT [FK_8] FOREIGN KEY ([propertyID])  REFERENCES [Property]([propertyID])
+ CONSTRAINT [PK_14] PRIMARY KEY CLUSTERED ([unitID] ASC),
+ CONSTRAINT [FK_8] FOREIGN KEY ([propertyID])  REFERENCES [group7].[Property]([propertyID])
 );
-GO
-
-
-CREATE NONCLUSTERED INDEX [FK_2] ON [Unit] 
- (
-  [propertyID] ASC
- )
-
 GO
