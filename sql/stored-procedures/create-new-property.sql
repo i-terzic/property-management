@@ -8,8 +8,7 @@ CREATE PROCEDURE [group7].[create_new_property] (
     @firstName varchar(64),
     @lastName varchar(64),
     @bankAccount varchar(255),
-    @managerID int,
-    @propertyID int output
+    @managerID int
 ) 
 AS
 BEGIN
@@ -19,7 +18,7 @@ DECLARE @adressID int;
 
 DECLARE @ownerID int;
 
-EXEC PROC [group7].[create_new_adress]
+EXEC [group7].[create_new_adress]
         @country = @country,
         @city = @city,
         @postalCode = @postalCode,
@@ -27,7 +26,7 @@ EXEC PROC [group7].[create_new_adress]
         @houseNr = @houseNr,
         @adressID = @adressID output;
 
-EXEC PROC [group7].[create_new_ower]
+EXEC [group7].[create_new_owner]
         @firstName = @firstName,
         @lastName = @lastName,
         @bankAccount = @bankAccount,
@@ -48,5 +47,6 @@ SET
 @LASTID = @@IDENTITY;
 
 SELECT
-	@propertyID = @LASTID;
+	
+'propertyID' = @LASTID;
 END;
