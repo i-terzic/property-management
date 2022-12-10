@@ -2,7 +2,7 @@
   <div class="py-5">
     <div class="d-flex justify-space-between">
       <h1>Managed Properties</h1>
-      <EditPropertyDialog>
+      <EditPropertyDialog @close="reloadManagedProperties">
         <template #activator="{ props }">
           <v-btn variant="outlined" v-bind="props">Add Property </v-btn>
         </template>
@@ -52,9 +52,16 @@ export default {
       });
     });
 
+    const reloadManagedProperties = () => {
+      axios.get("/api/property").then(({ data }) => {
+        items.value = data;
+      });
+    };
+
     return {
       items,
       headers,
+      reloadManagedProperties,
     };
   },
 };
