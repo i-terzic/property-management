@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
+    "axios": "^1.2.1",
     "eslint": "^8.28.0",
     "eslint-plugin-vue": "^9.8.0",
     "feathers-vuex": "^3.16.0",

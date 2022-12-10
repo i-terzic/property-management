@@ -49,7 +49,7 @@
 import { ref } from "vue";
 
 import CSVOverlay from "@/components/CSVOverlay.vue";
-
+import axios from "axios";
 export default {
   components: { CSVOverlay },
   setup() {
@@ -60,6 +60,11 @@ export default {
 
     const importCSVData = () => {
       alert(csvPlainText.value);
+      axios
+        .post("/api/csv-import", { value: csvPlainText.value })
+        .then((response) => {
+          console.log(response);
+        });
     };
 
     const parseCSVFile = (fileInput) => {
