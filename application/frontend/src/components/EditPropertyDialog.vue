@@ -15,6 +15,7 @@
                   v-model="editedItem.firstName"
                   label="First Name"
                   variant="outlined"
+                  :rules="[rules.required]"
                 ></v-text-field>
               </v-col>
               <v-col cols="6">
@@ -22,6 +23,7 @@
                   v-model="editedItem.lastName"
                   label="Last Name"
                   variant="outlined"
+                  :rules="[rules.required]"
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -32,6 +34,7 @@
                   v-model="editedItem.bankAccount"
                   label="Bank Account"
                   variant="outlined"
+                  :rules="[rules.required]"
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -45,6 +48,7 @@
                   v-model="editedItem.street"
                   label="Street"
                   variant="outlined"
+                  :rules="[rules.required]"
                 ></v-text-field>
               </v-col>
               <v-col cols="3">
@@ -52,6 +56,8 @@
                   v-model="editedItem.houseNr"
                   label="HouseNr"
                   variant="outlined"
+                  :rules="[rules.required]"
+                  type="number"
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -61,6 +67,8 @@
                   v-model="editedItem.postalCode"
                   label="Postal Code"
                   variant="outlined"
+                  :rules="[rules.required]"
+                  type="number"
                 ></v-text-field>
               </v-col>
               <v-col cols="8">
@@ -68,6 +76,17 @@
                   v-model="editedItem.city"
                   label="City"
                   variant="outlined"
+                  :rules="[rules.required]"
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="6">
+                <v-text-field
+                  v-model="editedItem.country"
+                  label="Country"
+                  variant="outlined"
+                  :rules="[rules.required]"
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -82,6 +101,8 @@
                   v-model="editedItem.nrUnits"
                   label="Number of units"
                   variant="outlined"
+                  :rules="[rules.required]"
+                  type="number"
                 ></v-text-field>
               </v-col>
               <v-col cols="6">
@@ -106,7 +127,9 @@
               "
               >Cancel</v-btn
             >
-            <v-btn variant="outlined" @click="saveItem().then(closeDialog)"
+            <v-btn
+              variant="outlined"
+              @click="saveItem(editedItem).then(closeDialog)"
               >Save</v-btn
             >
           </v-card-actions>
@@ -119,6 +142,7 @@
 <script>
 import axios from "axios";
 import { ref } from "vue";
+
 export default {
   props: {
     edit: {
@@ -126,10 +150,12 @@ export default {
       required: false,
     },
   },
-  setup(props) {
+  emits: ["close"],
+  setup(props, { emit }) {
     const dialog = ref(false);
     const closeDialog = () => {
       dialog.value = false;
+      emit("close");
     };
 
     const editedItem = ref({
@@ -141,11 +167,34 @@ export default {
       city: "",
       postalCode: null,
       nrUnits: null,
+      country: null,
       managerID: 1,
     });
 
-    const saveItem = () => {
-      if (!props.edit) return axios.post("/api/property", editedItem.value);
+    const rules = ref({
+      required: (value) => (!!value === false ? "Required." : true),
+    });
+
+    const validate = (item) => {
+      return Object.values(item)
+        .map((item) => !!item)
+        .every((item) => !!item);
+    };
+
+    const saveItem = (item) => {
+      const valid = validate(item);
+
+      if (!valid)
+        return new Promise((resolve, reject) => {
+          reject();
+        });
+      if (props.edit) return;
+      return axios.post("/api/property", {
+        ...item,
+        houseNr: Number.parseInt(item.houseNr),
+        postalCode: Number.parseInt(item.postalCode),
+        nrUnits: Number.parseInt(item.nrUnits),
+      });
     };
 
     return {
@@ -153,6 +202,7 @@ export default {
       closeDialog,
       editedItem,
       saveItem,
+      rules,
     };
   },
 };
