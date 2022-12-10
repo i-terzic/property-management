@@ -1,5 +1,11 @@
-
-CREATE PROCEDURE [group7].[create_new_adress] (@country varchar(64), @city varchar(64), @postalCode int, @street varchar(64), @houseNr int)
+CREATE PROCEDURE [group7].[create_new_adress] (
+	@country varchar(64),
+	@city varchar(64),
+	@postalCode int,
+	@street varchar(64),
+	@houseNr int,
+	@adressID int output
+)
 AS 
 BEGIN
 	DECLARE @LASTID int;
@@ -8,6 +14,6 @@ BEGIN
 	VALUES (@country, @city, @postalCode, @street, @houseNr)
 	SET @LASTID = @@IDENTITY;
 	
-	SELECT 'adressID' = @LASTID;
+	SELECT @adressID = @LASTID;
 	
 END;

@@ -1,5 +1,8 @@
-
-CREATE PROCEDURE [group7].[create_new_manager] (@firstName varchar(64), @lastName varchar(64))
+CREATE PROCEDURE [group7].[create_new_manager] (
+    @firstName varchar(64),
+    @lastName varchar(64),
+    @managerID int output
+)
 AS 
 BEGIN
 	DECLARE @LASTID int;
@@ -8,6 +11,6 @@ BEGIN
 	VALUES (@firstName, @lastName)
 	SET @LASTID = @@IDENTITY;
 	
-	SELECT 'managerID' = @LASTID;
+    SELECT @managerID = @LASTID;
 	
 END;

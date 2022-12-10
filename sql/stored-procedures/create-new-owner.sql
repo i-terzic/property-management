@@ -1,4 +1,9 @@
-CREATE PROCEDURE [group7].[create_new_owner] (@firstName varchar(64), @lastName varchar(64), @bankAccount varchar(255))
+CREATE PROCEDURE [group7].[create_new_owner] (
+	@firstName varchar(64),
+	@lastName varchar(64),
+	@bankAccount varchar(255),
+	@ownerID int output
+)
 AS 
 BEGIN
 	DECLARE @LASTID int;
@@ -7,6 +12,6 @@ BEGIN
 	VALUES (@firstName, @lastName, @bankAccount)
 	SET @LASTID = @@IDENTITY;
 	
-	SELECT 'ownerID' = @LASTID;
+	SELECT @ownerID = @LASTID;
 	
 END;
