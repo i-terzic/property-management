@@ -20,7 +20,7 @@ exports.Property = class Property {
 
   async get(id, params) {
     const result = await appPool.query(
-      `SELECT * FROM group7.Property WHERE propertyID = ${id}`
+      `SELECT * FROM [group7].[properties_view] WHERE propertyID = ${id}`
     );
     const data = _.get(result, "recordset[0]");
 
