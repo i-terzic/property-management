@@ -11,8 +11,8 @@ IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Tenant' AND t.schema_id 
 CREATE TABLE [group7].[Tenant]
 (
  [tenantID]    int NOT NULL ,
- [firstName]   int NOT NULL ,
- [lastName]    int NOT NULL ,
+ [firstName]   varchar(64) NOT NULL ,
+ [lastName]    varchar(64) NOT NULL ,
  [bankAccount] varchar(255) NOT NULL ,
 
 
