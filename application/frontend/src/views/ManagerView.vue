@@ -25,6 +25,13 @@
         <strong>Last Name:</strong> {{ ownerLastName }} <br />
         <strong>Bank Account: </strong>{{ ownerBankAccount }}
       </template>
+
+      <template #item-nrUnits="{ propertyID }">
+        <v-icon
+          icon="mdi-pencil"
+          @click="openPropertyDetails(propertyID)"
+        ></v-icon>
+      </template>
     </EasyDataTable>
   </div>
 </template>
@@ -32,6 +39,7 @@
 <script>
 import axios from "axios";
 import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 
 import EditPropertyDialog from "@/components/EditPropertyDialog.vue";
 
@@ -43,7 +51,7 @@ export default {
       { text: "PropertyID", value: "propertyID", sortable: true },
       { text: "Adress", value: "adressID" },
       { text: "Owner", value: "ownerID" },
-      { text: "Number of Units", value: "nrUnits", sortable: true },
+      { text: "Actions", value: "nrUnits" },
     ]);
 
     onMounted(() => {
@@ -58,10 +66,17 @@ export default {
       });
     };
 
+    const router = useRouter();
+
+    const openPropertyDetails = (propertyID) => {
+      router.push({ path: `/manager/property/${propertyID}` });
+    };
+
     return {
       items,
       headers,
       reloadManagedProperties,
+      openPropertyDetails,
     };
   },
 };

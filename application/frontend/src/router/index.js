@@ -46,6 +46,16 @@ const routes = [
       backgroundColor: "white",
     },
   },
+  {
+    path: "/manager/property/:id",
+    name: "propertyDetails",
+    component: () => import("../views/PropertyDetails.vue"),
+    meta: {
+      keepAlive: false,
+      backgroundColor: "white",
+    },
+    props: (route) => ({ id: Number.parseInt(route.params.id) }),
+  },
 ];
 
 const router = createRouter({ history: createWebHashHistory(), routes });
