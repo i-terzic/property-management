@@ -10,7 +10,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Contract' AND t.schema_id IN ( SELECT schema_id  FROM sys.schemas s WHERE s.name='group7'))
 CREATE TABLE [group7].[Contract]
 (
- [contractID]  int NOT NULL ,
+ [contractID]  int IDENTITY(1,1) PRIMARY KEY ,
  [nrResidents] int NOT NULL ,
  [tenantID]    int NOT NULL ,
  [unitID]      int NOT NULL ,
@@ -20,7 +20,6 @@ CREATE TABLE [group7].[Contract]
  [endDate]     datetime NOT NULL ,
 
 
- CONSTRAINT [PK_3] PRIMARY KEY CLUSTERED ([contractID] ASC),
  CONSTRAINT [FK_5] FOREIGN KEY ([ownerID])  REFERENCES [group7].[Owner]([ownerID]),
  CONSTRAINT [FK_6] FOREIGN KEY ([unitID])  REFERENCES [group7].[Unit]([unitID]),
  CONSTRAINT [FK_7] FOREIGN KEY ([tenantID])  REFERENCES [group7].[Tenant]([tenantID])

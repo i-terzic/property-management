@@ -10,12 +10,11 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Position' AND t.schema_id IN ( SELECT schema_id  FROM sys.schemas s WHERE s.name='group7'))
 CREATE TABLE [group7].[Position]
 (
- [positionID]       int NOT NULL ,
+ [positionID]       int IDENTITY(1,1) PRIMARY KEY ,
  [positionName]     varchar(255) NOT NULL ,
  [allocationTypeID] int NOT NULL ,
 
 
- CONSTRAINT [PK_8] PRIMARY KEY CLUSTERED ([positionID] ASC),
  CONSTRAINT [FK_12] FOREIGN KEY ([allocationTypeID])  REFERENCES [group7].[allocationType]([allocationTypeID])
 );
 GO

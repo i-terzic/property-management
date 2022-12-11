@@ -10,10 +10,8 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='allocationType' AND t.schema_id IN ( SELECT schema_id  FROM sys.schemas s WHERE s.name='group7'))
 CREATE TABLE [group7].[allocationType]
 (
- [allocationTypeID]   int NOT NULL ,
+ [allocationTypeID]   int IDENTITY(1,1) PRIMARY KEY ,
  [allocationTypeName] varchar(64) NOT NULL ,
 
-
- CONSTRAINT [PK_2] PRIMARY KEY CLUSTERED ([allocationTypeID] ASC)
 );
 GO
