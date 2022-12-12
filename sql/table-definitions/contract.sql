@@ -15,7 +15,8 @@ CREATE TABLE [group7].[Contract]
  [tenantID]    int NOT NULL ,
  [unitID]      int NOT NULL ,
  [ownerID]     int NOT NULL ,
- [warmRent]    int NOT NULL ,
+ [coldRent]    money NOT NULL ,
+ [prepayment]  money NOT NULL ,
  [startDate]   datetime NOT NULL ,
  [endDate]     datetime NOT NULL ,
 
