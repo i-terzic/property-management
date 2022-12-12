@@ -10,14 +10,13 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Property' AND t.schema_id IN ( SELECT schema_id  FROM sys.schemas s WHERE s.name='group7'))
 CREATE TABLE [group7].[Property]
 (
- [propertyID] int NOT NULL ,
+ [propertyID] int IDENTITY(1,1) PRIMARY KEY ,
  [nrUnits]    int NOT NULL ,
  [adressID]   int NOT NULL ,
  [ownerID]    int NOT NULL ,
  [managerID]  int NOT NULL ,
 
 
- CONSTRAINT [PK_9] PRIMARY KEY CLUSTERED ([propertyID] ASC),
  CONSTRAINT [FK_1] FOREIGN KEY ([managerID])  REFERENCES [group7].[Manager]([managerID]),
  CONSTRAINT [FK_2] FOREIGN KEY ([ownerID])  REFERENCES [group7].[Owner]([ownerID]),
  CONSTRAINT [FK_3] FOREIGN KEY ([adressID])  REFERENCES [group7].[Adress]([adressID])

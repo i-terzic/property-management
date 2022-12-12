@@ -10,13 +10,12 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Unit' AND t.schema_id IN ( SELECT schema_id  FROM sys.schemas s WHERE s.name='group7'))
 CREATE TABLE [group7].[Unit]
 (
- [unitID]       int NOT NULL ,
+ [unitID]       int IDENTITY(1,1) PRIMARY KEY ,
  [squareMeters] int NOT NULL ,
  [propertyID]   int NOT NULL ,
  [nrRooms]      int NOT NULL ,
 
 
- CONSTRAINT [PK_14] PRIMARY KEY CLUSTERED ([unitID] ASC),
  CONSTRAINT [FK_8] FOREIGN KEY ([propertyID])  REFERENCES [group7].[Property]([propertyID])
 );
 GO

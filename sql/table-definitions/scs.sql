@@ -10,13 +10,12 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='SCS' AND t.schema_id IN ( SELECT schema_id  FROM sys.schemas s WHERE s.name='group7'))
 CREATE TABLE [group7].[SCS]
 (
- [scsID]         int NOT NULL ,
+ [scsID]         int IDENTITY(1,1) PRIMARY KEY ,
  [startInterval] datetime NOT NULL ,
  [tenantID]      int NOT NULL ,
  [endInterval]   datetime NOT NULL ,
 
 
- CONSTRAINT [PK_11] PRIMARY KEY CLUSTERED ([scsID] ASC),
  CONSTRAINT [FK_9] FOREIGN KEY ([tenantID])  REFERENCES [group7].[Tenant]([tenantID])
 );
 GO
