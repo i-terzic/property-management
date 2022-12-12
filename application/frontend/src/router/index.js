@@ -11,27 +11,27 @@ const routes = [
     },
   },
   {
-    path: "/tenant",
-    name: "tenant",
-    component: () => import("../views/TenantView.vue"),
-    meta: {
-      keepAlive: false,
-      backgroundColor: "#d2d2d2",
-    },
-  },
-  {
-    path: "/manager",
-    name: "manager",
-    component: () => import("../views/ManagerView.vue"),
+    path: "/reports",
+    name: "reports",
+    component: () => import("../views/ReportsView.vue"),
     meta: {
       keepAlive: false,
       backgroundColor: "white",
     },
   },
   {
-    path: "/owner",
-    name: "owner",
-    component: () => import("../views/OwnerView.vue"),
+    path: "/managed-properties",
+    name: "managedProperties",
+    component: () => import("../views/ManagedPropertiesView.vue"),
+    meta: {
+      keepAlive: false,
+      backgroundColor: "white",
+    },
+  },
+  {
+    path: "/open-positions",
+    name: "openPositions",
+    component: () => import("../views/OpenPositionsView.vue"),
     meta: {
       keepAlive: false,
       backgroundColor: "white",
@@ -47,7 +47,7 @@ const routes = [
     },
   },
   {
-    path: "/manager/property/:id",
+    path: "/managed-properties/:id",
     name: "propertyDetails",
     component: () => import("../views/PropertyDetails.vue"),
     meta: {
