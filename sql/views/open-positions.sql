@@ -1,23 +1,22 @@
 CREATE VIEW [group7].[open_position_view]
-AS
+AS 
 SELECT
-    op.openPositionID, 
-	op.description,
-    op.amount,
-    op.tenantID,
-    op.date,
-    t.firstName as tenantFirstName,
-    t.lastName as tenantLastName,
-    p.street,
-    p.houseNr,
-    p.postalCode,
-    p.city,
-    p.country
+	op.tenantID,
+	op.date,
+	op.amount,
+	t.firstName,
+	t.lastName
 FROM
-	[group7].[OpenPosition] op
-INNER JOIN [group7].[properties_view] AS p 
-	ON
-	p.propertyID = op.propertyID
-INNER JOIN [group7].[Tenant] t 
-	ON 
-	t.tenantID = op.tenantID;
+	(
+	SELECT
+		op.tenantID,
+		date,
+		SUM (amount) as amount
+	FROM
+		group7.OpenPosition op
+	GROUP BY
+		op.tenantID,
+		date) AS op
+LEFT JOIN group7.Tenant t 
+ON
+	op.tenantID = t.tenantID;
