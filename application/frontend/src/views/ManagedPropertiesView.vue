@@ -69,7 +69,7 @@ export default {
     const router = useRouter();
 
     const openPropertyDetails = (propertyID) => {
-      router.push({ path: `/manager/property/${propertyID}` });
+      router.push({ path: `/managed-properties/${propertyID}` });
     };
 
     return {

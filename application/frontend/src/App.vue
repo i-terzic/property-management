@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar flat color="grey-darken-2" density="compact">
+    <v-app-bar flat color="primary" density="compact">
       <v-container style="max-width: 1200px" class="d-flex align-center">
         <v-toolbar-title>
           <!-- TODO: Application Name -->
@@ -10,14 +10,14 @@
           <v-list-item :to="{ name: 'home' }" :active="false">
             Home
           </v-list-item>
-          <v-list-item :to="{ name: 'tenant' }" :active="false">
-            Tenant
+          <v-list-item :to="{ name: 'reports' }" :active="false">
+            Reports
           </v-list-item>
-          <v-list-item :to="{ name: 'owner' }" :active="false">
-            Owner
+          <v-list-item :to="{ name: 'openPositions' }" :active="false">
+            Open Positions
           </v-list-item>
-          <v-list-item :to="{ name: 'manager' }" :active="false">
-            Manager
+          <v-list-item :to="{ name: 'managedProperties' }" :active="false">
+            Managed Properties
           </v-list-item>
         </v-toolbar-items>
       </v-container>

@@ -6,10 +6,10 @@
     <div class="d-flex justify-space-between pt-5">
       <!-- Tenant card -->
       <v-card width="350px" color="primary" outlined>
-        <v-card-title> Tenant </v-card-title>
+        <v-card-title> Reports </v-card-title>
         <v-card-text>
-          In this view you can see all relevant information regarding the tenant
-          view
+          In this view you can create reports. Including the service charge
+          settlement report.
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions style="background-color: white">
@@ -18,18 +18,18 @@
             variant="outlined"
             color="primary"
             flat
-            @click="navigateToView('tenant')"
+            @click="navigateToView('reports')"
             >Navigate</v-btn
           >
         </v-card-actions>
       </v-card>
 
-      <!-- Owner Card -->
+      <!-- Open Positions Card -->
       <v-card width="350px" color="secondary">
-        <v-card-title> Owner </v-card-title>
+        <v-card-title> Open Positions </v-card-title>
         <v-card-text>
-          In this view you can see all relevant information regarding the Owner
-          view
+          In this view you can see all relevant information regarding open
+          positions.
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions style="background-color: white">
@@ -38,7 +38,7 @@
             variant="outlined"
             color="secondary"
             flat
-            @click="navigateToView('owner')"
+            @click="navigateToView('openPositions')"
             >Navigate</v-btn
           >
         </v-card-actions>
@@ -46,10 +46,10 @@
 
       <!-- Manager Card -->
       <v-card width="350px" color="ternary">
-        <v-card-title> Manager </v-card-title>
+        <v-card-title> Managed Properties </v-card-title>
         <v-card-text>
-          In this view you can see all relevant information regarding the
-          Manager view
+          In this view you can see all relevant information regarding managed
+          properties.
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions style="background-color: white">
@@ -58,7 +58,7 @@
             variant="outlined"
             color="ternary"
             flat
-            @click="navigateToView('manager')"
+            @click="navigateToView('managedProperties')"
             >Navigate</v-btn
           >
         </v-card-actions>
