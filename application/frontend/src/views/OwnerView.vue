@@ -22,12 +22,17 @@
         <br />
         {{ country }}
       </template>
+
+      <template #item-date="{ date }">
+        {{ formatDate(date) }}
+      </template>
     </EasyDataTable>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import moment from "moment";
 import { onMounted, ref } from "vue";
 export default {
   setup() {
@@ -37,6 +42,7 @@ export default {
       { text: "Amount", value: "amount", sortable: true },
       { text: "Tenant", value: "tenantFirstName" },
       { text: "Adress", value: "street" },
+      { text: "Date", value: "date" },
     ]);
     const items = ref([]);
 
@@ -46,9 +52,11 @@ export default {
       });
     });
 
+    const formatDate = (date) => moment(date).format("DD.MM.YYYY");
     return {
       headers,
       items,
+      formatDate,
     };
   },
 };

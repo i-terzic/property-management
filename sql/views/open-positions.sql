@@ -5,6 +5,7 @@ SELECT
 	op.description,
     op.amount,
     op.tenantID,
+    op.date,
     t.firstName as tenantFirstName,
     t.lastName as tenantLastName,
     p.street,
