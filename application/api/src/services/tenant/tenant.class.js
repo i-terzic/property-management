@@ -10,14 +10,56 @@ exports.Tenant = class Tenant {
   }
 
   async find(params) {
-    const result = await appPool.query("SELECT * FROM [group7].[Tenant]");
+    const result = await appPool.query(`
+    SELECT 
+      t.tenantID,
+      t.firstName,
+      t.lastName,
+      t.bankAccount,
+      u.propertyID
+    FROM 
+      [group7].[Tenant] t
+    LEFT JOIN 
+      [group7].[Contract] c
+    ON 
+      t.tenantID = c.tenantID 
+    LEFT JOIN 
+      [group7].[Unit] u 
+    ON
+      u.unitID = c.unitID;	
+    `);
 
     const data = _.get(result, "recordsets[0]");
     return data;
   }
 
   async get(id, params) {
-    throw new Forbidden();
+    const result = await appPool.query(`
+    SELECT 
+      t.tenantID,
+      t.firstName,
+      t.lastName,
+      t.bankAccount,
+      u.propertyID
+    FROM 
+      [group7].[Tenant] t
+    LEFT JOIN 
+      [group7].[Contract] c
+    ON 
+      t.tenantID = c.tenantID 
+    LEFT JOIN 
+      [group7].[Unit] u 
+    ON
+      u.unitID = c.unitID
+    WHERE 
+      t.tenantID = ${id}	
+    `);
+
+    const data = _.get(result, "recordset[0]");
+
+    return {
+      ...data,
+    };
   }
 
   async create(data, params) {
