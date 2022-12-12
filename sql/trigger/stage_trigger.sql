@@ -14,6 +14,8 @@ BEGIN
     DECLARE @propertyId int;
     DECLARE @contractId int;
 
+    DECLARE @prepayAmount money;
+
     SELECT
         @postingDate = i.postingDate,
         @valutaDate = i.valutaDate,
@@ -40,6 +42,10 @@ BEGIN
             INSERT INTO [group7].[OpenPosition]
                 (propertyId,tenantId,amount,"description","date")
             values(@propertyId, @tenantId, @amount, 'MIETE '+@tenantln, @valutaDate)
+            
+            select  @prepayAmount = c.prepayment from [group7].[Contract] as c where c.tenantID = @tenantId;
+            INSERT INTO [group7].[Prepayment] (tenantId,amount,"date")
+            values (@tenantId,@prepayAmount,@valutaDate)
         END
     END
     ELSE 
@@ -155,4 +161,3 @@ BEGIN
         END
     end
 END;
-
