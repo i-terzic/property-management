@@ -23,6 +23,8 @@ DECLARE @propertyID int;
 
 DECLARE @tenantLastName varchar(64);
 
+DECLARE @date date = DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1)
+
 DECLARE @Cursor AS CURSOR;
 
 SET
@@ -77,12 +79,14 @@ INSERT
 		(propertyID,
 	tenantID,
 	amount,
-	description
+	description,
+	date
 	)
 VALUES (@propertyID,
 @tenantID,
 (@warmRent * -1),
-CONCAT('MIETE ', @tenantLastName)
+CONCAT('MIETE ', @tenantLastName),
+@date
 );
 -- Insert Rent as negative open position
 
