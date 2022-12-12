@@ -21,6 +21,8 @@ DECLARE @endDate datetime;
 
 DECLARE @propertyID int;
 
+DECLARE @ownerLastName varchar(64);
+
 DECLARE @Cursor AS CURSOR;
 
 SET
@@ -62,15 +64,26 @@ FROM
 WHERE
 	u.unitID = @unitID;
 
+SELECT
+	TOP 1 @ownerLastName = lastName
+FROM
+	[group7].[Owner] o
+WHERE
+	o.ownerID = @ownerID;
+
 INSERT
 	INTO
 	[group7].[OpenPositions]
 		(propertyID,
 	tenantID,
-	amount)
+	amount,
+	description
+	)
 VALUES (@propertyID,
 @tenantID,
-(@warmRent * -1));
+(@warmRent * -1),
+CONCAT('MIETE ', @ownerLastName)
+);
 -- Insert Rent as negative open position
 
 FETCH NEXT

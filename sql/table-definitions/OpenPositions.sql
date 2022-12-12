@@ -13,6 +13,7 @@ CREATE TABLE [group7].[OpenPosition]
  [propertyID]     int NOT NULL ,
  [tenantID]       int NOT NULL ,
  [amount]         money NOT NULL ,
+ [description]    varchar(255) NOT NULL,
 
 
  CONSTRAINT [FK_17] FOREIGN KEY ([tenantID])  REFERENCES [group7].[Tenant]([tenantID]),
