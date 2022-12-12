@@ -39,7 +39,7 @@ export default {
     const headers = ref([
       { text: "Amount", value: "amount", sortable: true },
       { text: "Tenant", value: "tenantFirstName" },
-      { text: "Date", value: "date" },
+      { text: "Date", value: "date", sortable: true },
     ]);
     const items = ref([]);
 
