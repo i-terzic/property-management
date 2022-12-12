@@ -3,7 +3,11 @@
     <div class="d-flex">
       <h1>Property Details</h1>
       <v-spacer></v-spacer>
-      <v-btn variant="outlined">Add Unit</v-btn>
+      <EditUnitDialog :property-id="id" @close="reloadUnits">
+        <template #activator="{ props }">
+          <v-btn variant="outlined" v-bind="props">Add Unit</v-btn>
+        </template>
+      </EditUnitDialog>
     </div>
     <v-row>
       <v-col cols="8">
@@ -114,10 +118,12 @@
 </template>
 
 <script>
+import EditUnitDialog from "@/components/EditUnitDialog.vue";
 import axios from "axios";
 import { onMounted, ref } from "vue";
 
 export default {
+  components: { EditUnitDialog },
   props: {
     id: {
       type: Number,
