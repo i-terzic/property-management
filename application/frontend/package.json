@@ -15,6 +15,7 @@
     "eslint": "^8.28.0",
     "eslint-plugin-vue": "^9.8.0",
     "feathers-vuex": "^3.16.0",
+    "moment": "^2.29.4",
     "prettier": "^2.8.0",
     "roboto-fontface": "*",
     "vite-plugin-eslint": "^1.8.1",
