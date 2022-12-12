@@ -11,8 +11,8 @@
         <span v-else class="grey"> {{ amount }}</span>
       </template>
 
-      <template #item-tenantFirstName="{ tenantFirstName, tenantLastName }">
-        {{ tenantLastName }}, {{ tenantFirstName }}
+      <template #item-tenantFirstName="{ firstName, lastName }">
+        {{ lastName }}, {{ firstName }}
       </template>
 
       <template #item-street="{ street, houseNr, city, postalCode, country }">
@@ -37,11 +37,8 @@ import { onMounted, ref } from "vue";
 export default {
   setup() {
     const headers = ref([
-      { text: "Id", value: "openPositionID", sortable: true },
-      { text: "Description", value: "description" },
       { text: "Amount", value: "amount", sortable: true },
       { text: "Tenant", value: "tenantFirstName" },
-      { text: "Adress", value: "street" },
       { text: "Date", value: "date" },
     ]);
     const items = ref([]);
