@@ -36,6 +36,7 @@ exports.CsvImport = class CsvImport {
     }
     if (csv[0] == "&") csv = csv.slice(1);
     csv = csv.slice(0, -1);
-    appPool.query(`exec [group7].[stage_sp] @data='${csv}'`);
+    const res = await appPool.query(`exec [group7].[stage_sp] @data='${csv}'`);
+    return res;
   }
 };

@@ -42,6 +42,9 @@
         ></v-textarea
       ></v-col>
     </v-row>
+    <v-snackbar v-model="snackbar" :timeout="3000">
+      {{ addedTransactions }}
+    </v-snackbar>
   </div>
 </template>
 
@@ -55,16 +58,20 @@ export default {
   setup() {
     const showOverlay = ref(false);
     const csvPlainText = ref("");
+    const addedTransactions = ref(false);
+
+    const snackbar = ref(false);
 
     const file = ref([]);
 
     const importCSVData = () => {
-      alert(csvPlainText.value);
       axios
         .post("/api/csv-import", { value: csvPlainText.value })
         .then((response) => {
-          console.log(response);
-        });
+          addedTransactions.value = `Added ${response.data.recordset[0].affectedRows} new transactions`;
+        })
+        .catch((e) => (addedTransactions.value = e));
+      snackbar.value = true;
     };
 
     const parseCSVFile = (fileInput) => {
@@ -84,6 +91,8 @@ export default {
       file,
       importCSVData,
       parseCSVFile,
+      snackbar,
+      addedTransactions,
     };
   },
 };
