@@ -14,6 +14,7 @@ CREATE TABLE [group7].[scsPosition]
  [amount]        int NOT NULL ,
  [scsID]         int NOT NULL ,
  [positionID]    int NOT NULL ,
+ [date]          date NOT NULL ,
 
 
  CONSTRAINT [FK_11] FOREIGN KEY ([positionID])  REFERENCES [group7].[Position]([positionID]),
