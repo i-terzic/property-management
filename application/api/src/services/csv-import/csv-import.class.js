@@ -32,9 +32,9 @@ exports.CsvImport = class CsvImport {
     });
     let csv = "";
     for (const obj of records) {
-      csv = csv + obj.raw + "&";
+      csv = csv + obj.raw + "~";
     }
-    if (csv[0] == "&") csv = csv.slice(1);
+    if (csv[0] == "~") csv = csv.slice(1);
     csv = csv.slice(0, -1);
     const res = await appPool.query(`exec [group7].[stage_sp] @data='${csv}'`);
     return res;

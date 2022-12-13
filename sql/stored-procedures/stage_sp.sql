@@ -13,7 +13,7 @@ BEGIN
     select
         value
     from
-        STRING_SPLIT ( @data , '&'
+        STRING_SPLIT ( @data , '~'
     );
 
     DECLARE @Cursor as CURSOR;
