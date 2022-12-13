@@ -13,7 +13,9 @@ DECLARE @unitID int;
 
 DECLARE @ownerID int;
 
-DECLARE @warmRent int;
+DECLARE @coldRent money;
+
+DECLARE @prepayment money;
 
 DECLARE @startDate datetime;
 
@@ -35,7 +37,8 @@ SELECT
 	tenantID,
 	unitID,
 	ownerID,
-	warmRent,
+	coldRent,
+	prepayment,
 	startDate,
 	endDate
 FROM 
@@ -51,7 +54,8 @@ INTO
 	@tenantID,
 	@unitID,
 	@ownerID,
-	@warmRent,
+	@coldRent,
+	@prepayment,
 	@startDate,
 	@endDate
 
@@ -84,7 +88,7 @@ INSERT
 	)
 VALUES (@propertyID,
 @tenantID,
-(@warmRent * -1),
+((@coldRent + @prepayment ) * -1),
 CONCAT('MIETE ', @tenantLastName),
 @date
 );
@@ -99,7 +103,8 @@ INTO
 	@tenantID,
 	@unitID,
 	@ownerID,
-	@warmRent,
+	@coldRent,
+	@prepayment,
 	@startDate,
 	@endDate
 END
