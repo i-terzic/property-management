@@ -10,11 +10,10 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Manager' AND t.schema_id IN ( SELECT schema_id  FROM sys.schemas s WHERE s.name='group7'))
 CREATE TABLE [group7].[Manager]
 (
- [managerID] int NOT NULL ,
+ [managerID] int IDENTITY(1,1) PRIMARY KEY ,
  [firstName] varchar(64) NOT NULL ,
  [lastName]  varchar(64) NOT NULL ,
 
 
- CONSTRAINT [PK_5] PRIMARY KEY CLUSTERED ([managerID] ASC)
 );
 GO
