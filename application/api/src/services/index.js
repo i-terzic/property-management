@@ -1,3 +1,5 @@
+// eslint-disable-next-line no-unused-vars
+const csvImport = require("./csv-import/csv-import.service.js");  
 const property = require("./property/property.service.js");
 const unit = require("./unit/unit.service.js");
 const openPosition = require("./open-position/open-position.service.js");
@@ -13,4 +15,5 @@ module.exports = function (app) {
   app.configure(tenant);
   app.configure(scsPosition);
   app.configure(prepayment);
+  app.configure(csvImport);
 };
