@@ -1,7 +1,13 @@
 <template>
   <div class="py-5">
-    <div>
+    <div class="d-flex">
       <h1>Open Positions</h1>
+      <v-spacer></v-spacer>
+      <p>
+        Saldo: <span v-if="saldo < 0" style="color: red"> {{ saldo }}</span>
+        <span v-else-if="saldo > 0" style="color: green"> {{ saldo }}</span>
+        <span v-else style="color: grey"> {{ saldo }}</span>
+      </p>
     </div>
 
     <EasyDataTable :headers="headers" :items="items">
@@ -22,24 +28,20 @@
         <br />
         {{ country }}
       </template>
-
-      <template #item-date="{ date }">
-        {{ formatDate(date) }}
-      </template>
     </EasyDataTable>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import moment from "moment";
-import { onMounted, ref } from "vue";
+import _ from "lodash";
+import { computed, onMounted, ref } from "vue";
+
 export default {
   setup() {
     const headers = ref([
       { text: "Amount", value: "amount", sortable: true },
       { text: "Tenant", value: "tenantFirstName" },
-      { text: "Date", value: "date", sortable: true },
     ]);
     const items = ref([]);
 
@@ -49,11 +51,14 @@ export default {
       });
     });
 
-    const formatDate = (date) => moment(date).format("DD.MM.YYYY");
+    const saldo = computed(() => {
+      return _(items.value).map("amount").sum();
+    });
+
     return {
       headers,
       items,
-      formatDate,
+      saldo,
     };
   },
 };
