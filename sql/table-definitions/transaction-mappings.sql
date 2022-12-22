@@ -11,7 +11,7 @@ GO
 
 CREATE TABLE [group7].[TransactionMapping]
 (
-    [mappingId] int IDENTITY(1,1) PRIMARY KEY ,
+    [mappingID] int IDENTITY(1,1) PRIMARY KEY ,
     [transactionPattern] varchar(50) NOT NULL ,
     [positionID] int NOT NULL ,
 
